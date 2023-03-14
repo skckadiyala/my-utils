@@ -9,11 +9,17 @@ import (
 	"io/ioutil"
 	"net/http"
 	"os"
+	"strings"
 )
 
-func JsonArray2Splunk(jsonArrayFile, splunkHost, splunkPort, userName, password, source, index string) error {
+func ProvarResults2Splunk(excelFile, splunkHost, splunkPort, userName, password, source, index string) error {
 
 	splunkUrl := "https://" + splunkHost + ":" + splunkPort
+	jsonArrayFile, err := Excel2Json(excelFile)
+	if err != nil {
+		fmt.Println(err)
+		return err
+	}
 
 	userData := []byte(userName + ":" + password)
 	basicAuth := base64.StdEncoding.EncodeToString(userData)
@@ -36,7 +42,7 @@ func JsonArray2Splunk(jsonArrayFile, splunkHost, splunkPort, userName, password,
 	}
 
 	// Loop through the slice and marshal each map to JSON
-	for _, obj := range data {
+	for cnt, obj := range data {
 		jsonObj, err := json.Marshal(obj)
 		if err != nil {
 			fmt.Println(err)
@@ -51,6 +57,14 @@ func JsonArray2Splunk(jsonArrayFile, splunkHost, splunkPort, userName, password,
 			return err
 		}
 
+		testPath := fmt.Sprintf("%v", jsonData["testPath"])
+
+		pathList := strings.Split(testPath, "\\")
+
+		// fmt.Println("TestType:", string(os.PathSeparator), jsonData["TestPath"])
+
+		jsonData["testType"] = pathList[2]
+		jsonData["functionlaity"] = pathList[3]
 		// Add more fields to the map
 		jsonData["jobName"] = os.Getenv("BUILD_DEFINITIONNAME")
 		jsonData["runID"] = os.Getenv("BUILD_BUILDNUMBER")
@@ -64,9 +78,11 @@ func JsonArray2Splunk(jsonArrayFile, splunkHost, splunkPort, userName, password,
 			fmt.Println(err)
 			return err
 		}
+		fmt.Printf("Test Result %v ", cnt+1)
+		// fmt.Printf("Test Result %v : %v \n", cnt+1, string(jsonObject))
 		PostResults(splunkUrl, source, index, basicAuth, jsonObject)
 		// Print the new JSON object
-		fmt.Println(string(jsonObject))
+
 	}
 	return nil
 }

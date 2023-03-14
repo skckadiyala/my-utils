@@ -4,8 +4,12 @@ Copyright © 2023 NAME HERE <EMAIL ADDRESS>
 package cmd
 
 import (
+	"fmt"
+
 	"github.com/spf13/cobra"
 )
+
+var version string = "1.0.0"
 
 // convertCmd represents the convert command
 var convertCmd = &cobra.Command{
@@ -21,9 +25,18 @@ to quickly create a Cobra application.`,
 	// 	fmt.Println("convert called")
 	// },
 }
+var versionCmd = &cobra.Command{
+	Use:   "version",
+	Short: "Print the version number of the CLI tool",
+	Long:  `All software has versions. This is the CLI tool's`,
+	Run: func(cmd *cobra.Command, args []string) {
+		fmt.Printf("CLI tool version %v\n", version)
+	},
+}
 
 func init() {
 	rootCmd.AddCommand(convertCmd)
+	rootCmd.AddCommand(versionCmd)
 
 	// Here you will define your flags and configuration settings.
 

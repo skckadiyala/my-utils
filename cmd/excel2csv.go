@@ -78,16 +78,18 @@ to quickly create a Cobra application.`,
 }
 
 var push2splunkCmd = &cobra.Command{
-	Use:   "push2splunk",
-	Short: "Push Json File to Splunk",
-	Long: `A longer description that spans multiple lines and likely contains examples
-and usage of using your command. For example:
+	Use:   "provar2splunk",
+	Short: "Push Provar results from Excel to Splunk",
+	Long: `Push Provar Results to Splunk, In this the excel results sheet is converted to json 
+	and push the json results to splunk. For example:
+
+	myutils convert provar2splunk -H <splunkhost> -u <splunk user> -p <splunk password>  -s <source splunk> -x resources/TestExecutionReport.xlsx
 
 Cobra is a CLI library for Go that empowers applications.
 This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 	RunE: func(cmd *cobra.Command, args []string) error {
-		return utils.JsonArray2Splunk(jsonfile, splunkHost, splunkPort, userName, password, source, index)
+		return utils.ProvarResults2Splunk(xlsxFile, splunkHost, splunkPort, userName, password, source, index)
 		// return xlsx2csv()
 		// fmt.Println("excel2csv called")
 
@@ -121,7 +123,7 @@ func init() {
 	csv2jsonCmd.Flags().StringVarP(&jsonfile, "jsonfile", "j", "", "The filename of the Json file")
 	csv2jsonCmd.MarkFlagRequired("jsonfile")
 
-	push2splunkCmd.Flags().StringVarP(&jsonfile, "jsonfile", "j", "", "Provide the filename of the Json file")
+	push2splunkCmd.Flags().StringVarP(&xlsxFile, "xlsxFile", "x", "", "Provide the filename of the excel file")
 	push2splunkCmd.MarkFlagRequired("jsonfile")
 	push2splunkCmd.Flags().StringVarP(&splunkHost, "splunkHost", "H", "", "Provide the host name")
 	push2splunkCmd.MarkFlagRequired("splunkHost")

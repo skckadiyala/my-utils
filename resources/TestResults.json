@@ -1,0 +1,222 @@
+[
+  {
+    "automationTool": "Provar",
+    "duration": "5.667",
+    "priority": "1",
+    "testEndTime": "2023-03-13 16:38:42.08",
+    "testError": "_null_",
+    "testName": "CreateAccountSMBwithNonRequiredFields ",
+    "testOutCome": "successful",
+    "testPath": "tests\\Functional\\SF-API\\Account\\CreateAccountsFromDataSheet.testcase",
+    "testStartTime": "2023-03-13 16:38:36.413"
+  },
+  {
+    "automationTool": "Provar",
+    "duration": "2.056",
+    "priority": "1",
+    "testEndTime": "2023-03-13 16:38:45.444",
+    "testError": "_null_",
+    "testName": "CreateAccountCORPwithNonRequiredFields ",
+    "testOutCome": "successful",
+    "testPath": "tests\\Functional\\SF-API\\Account\\CreateAccountsFromDataSheet.testcase",
+    "testStartTime": "2023-03-13 16:38:43.388"
+  },
+  {
+    "automationTool": "Provar",
+    "duration": "2.123",
+    "priority": "1",
+    "testEndTime": "2023-03-13 16:38:47.798",
+    "testError": "_null_",
+    "testName": "CreateAccountHCwithNonRequiredFields ",
+    "testOutCome": "successful",
+    "testPath": "tests\\Functional\\SF-API\\Account\\CreateAccountsFromDataSheet.testcase",
+    "testStartTime": "2023-03-13 16:38:45.675"
+  },
+  {
+    "automationTool": "Provar",
+    "duration": "2.457",
+    "priority": "1",
+    "testEndTime": "2023-03-13 16:38:50.513",
+    "testError": "_null_",
+    "testName": "CreateAccountHEwithNonRequiredFields ",
+    "testOutCome": "successful",
+    "testPath": "tests\\Functional\\SF-API\\Account\\CreateAccountsFromDataSheet.testcase",
+    "testStartTime": "2023-03-13 16:38:48.056"
+  },
+  {
+    "automationTool": "Provar",
+    "duration": "2.595",
+    "priority": "1",
+    "testEndTime": "2023-03-13 16:38:53.336",
+    "testError": "_null_",
+    "testName": "CreateAccountK12withNonRequiredFields ",
+    "testOutCome": "successful",
+    "testPath": "tests\\Functional\\SF-API\\Account\\CreateAccountsFromDataSheet.testcase",
+    "testStartTime": "2023-03-13 16:38:50.741"
+  },
+  {
+    "automationTool": "Provar",
+    "duration": "1.785",
+    "priority": "1",
+    "testEndTime": "2023-03-13 16:38:55.34",
+    "testError": "_null_",
+    "testName": "CreateAccountwithSMBRequiredFields ",
+    "testOutCome": "successful",
+    "testPath": "tests\\Functional\\SF-API\\Account\\CreateAccountsFromDataSheet.testcase",
+    "testStartTime": "2023-03-13 16:38:53.555"
+  },
+  {
+    "automationTool": "Provar",
+    "duration": "1.707",
+    "priority": "1",
+    "testEndTime": "2023-03-13 16:38:57.249",
+    "testError": "_null_",
+    "testName": "CreateAccountCORPwithRequiredFields ",
+    "testOutCome": "successful",
+    "testPath": "tests\\Functional\\SF-API\\Account\\CreateAccountsFromDataSheet.testcase",
+    "testStartTime": "2023-03-13 16:38:55.542"
+  },
+  {
+    "automationTool": "Provar",
+    "duration": "2.18",
+    "priority": "1",
+    "testEndTime": "2023-03-13 16:38:59.657",
+    "testError": "_null_",
+    "testName": "CreateAccountHCwithRequiredFields ",
+    "testOutCome": "successful",
+    "testPath": "tests\\Functional\\SF-API\\Account\\CreateAccountsFromDataSheet.testcase",
+    "testStartTime": "2023-03-13 16:38:57.477"
+  },
+  {
+    "automationTool": "Provar",
+    "duration": "1.985",
+    "priority": "1",
+    "testEndTime": "2023-03-13 16:39:01.9",
+    "testError": "_null_",
+    "testName": "CreateAccountHEwithRequiredFields ",
+    "testOutCome": "successful",
+    "testPath": "tests\\Functional\\SF-API\\Account\\CreateAccountsFromDataSheet.testcase",
+    "testStartTime": "2023-03-13 16:38:59.915"
+  },
+  {
+    "automationTool": "Provar",
+    "duration": "3.026",
+    "priority": "1",
+    "testEndTime": "2023-03-13 16:39:05.166",
+    "testError": "_null_",
+    "testName": "CreateAccountK12withRequiredFields ",
+    "testOutCome": "successful",
+    "testPath": "tests\\Functional\\SF-API\\Account\\CreateAccountsFromDataSheet.testcase",
+    "testStartTime": "2023-03-13 16:39:02.14"
+  },
+  {
+    "automationTool": "Provar",
+    "duration": "3.776",
+    "priority": "1",
+    "testEndTime": "2023-03-13 16:39:15.4",
+    "testError": "_null_",
+    "testName": "CreateContactForSMBwithNonRequiredFields",
+    "testOutCome": "successful",
+    "testPath": "tests\\Functional\\SF-API\\Contact\\CreateContactForAccount.testcase",
+    "testStartTime": "2023-03-13 16:39:11.624"
+  },
+  {
+    "automationTool": "Provar",
+    "duration": "4.26",
+    "priority": "1",
+    "testEndTime": "2023-03-13 16:39:19.878",
+    "testError": "_null_",
+    "testName": "CreateContactForCORPwithNonRequiredFields",
+    "testOutCome": "successful",
+    "testPath": "tests\\Functional\\SF-API\\Contact\\CreateContactForAccount.testcase",
+    "testStartTime": "2023-03-13 16:39:15.618"
+  },
+  {
+    "automationTool": "Provar",
+    "duration": "3.331",
+    "priority": "1",
+    "testEndTime": "2023-03-13 16:39:23.456",
+    "testError": "_null_",
+    "testName": "CreateContactForHCwithNonRequiredFields",
+    "testOutCome": "successful",
+    "testPath": "tests\\Functional\\SF-API\\Contact\\CreateContactForAccount.testcase",
+    "testStartTime": "2023-03-13 16:39:20.125"
+  },
+  {
+    "automationTool": "Provar",
+    "duration": "3.017",
+    "priority": "1",
+    "testEndTime": "2023-03-13 16:39:26.707",
+    "testError": "_null_",
+    "testName": "CreateContactForHEwithNonRequiredFields",
+    "testOutCome": "successful",
+    "testPath": "tests\\Functional\\SF-API\\Contact\\CreateContactForAccount.testcase",
+    "testStartTime": "2023-03-13 16:39:23.69"
+  },
+  {
+    "automationTool": "Provar",
+    "duration": "4.106",
+    "priority": "1",
+    "testEndTime": "2023-03-13 16:39:31.117",
+    "testError": "_null_",
+    "testName": "CreateContactForK12withNonRequiredFields",
+    "testOutCome": "successful",
+    "testPath": "tests\\Functional\\SF-API\\Contact\\CreateContactForAccount.testcase",
+    "testStartTime": "2023-03-13 16:39:27.011"
+  },
+  {
+    "automationTool": "Provar",
+    "duration": "3.315",
+    "priority": "1",
+    "testEndTime": "2023-03-13 16:39:34.678",
+    "testError": "_null_",
+    "testName": "CreateContactForSMBRequiredFields",
+    "testOutCome": "successful",
+    "testPath": "tests\\Functional\\SF-API\\Contact\\CreateContactForAccount.testcase",
+    "testStartTime": "2023-03-13 16:39:31.363"
+  },
+  {
+    "automationTool": "Provar",
+    "duration": "2.947",
+    "priority": "1",
+    "testEndTime": "2023-03-13 16:39:37.897",
+    "testError": "_null_",
+    "testName": "CreateContactForCORPwithRequiredFields",
+    "testOutCome": "successful",
+    "testPath": "tests\\Functional\\SF-API\\Contact\\CreateContactForAccount.testcase",
+    "testStartTime": "2023-03-13 16:39:34.95"
+  },
+  {
+    "automationTool": "Provar",
+    "duration": "4.266",
+    "priority": "1",
+    "testEndTime": "2023-03-13 16:39:42.425",
+    "testError": "_null_",
+    "testName": "CreateContactForHCwithRequiredFields",
+    "testOutCome": "successful",
+    "testPath": "tests\\Functional\\SF-API\\Contact\\CreateContactForAccount.testcase",
+    "testStartTime": "2023-03-13 16:39:38.159"
+  },
+  {
+    "automationTool": "Provar",
+    "duration": "3.028",
+    "priority": "1",
+    "testEndTime": "2023-03-13 16:39:45.724",
+    "testError": "_null_",
+    "testName": "CreateContactForHEwithRequiredFields",
+    "testOutCome": "successful",
+    "testPath": "tests\\Functional\\SF-API\\Contact\\CreateContactForAccount.testcase",
+    "testStartTime": "2023-03-13 16:39:42.696"
+  },
+  {
+    "automationTool": "Provar",
+    "duration": "3.254",
+    "priority": "1",
+    "testEndTime": "2023-03-13 16:39:49.26",
+    "testError": "_null_",
+    "testName": "CreateContactForK12withRequiredFields",
+    "testOutCome": "successful",
+    "testPath": "tests\\Functional\\SF-API\\Contact\\CreateContactForAccount.testcase",
+    "testStartTime": "2023-03-13 16:39:46.006"
+  }
+]

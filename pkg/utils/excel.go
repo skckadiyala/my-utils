@@ -7,6 +7,8 @@ import (
 	"regexp"
 	"strings"
 
+	"encoding/json"
+
 	"github.com/xuri/excelize/v2"
 )
 
@@ -101,8 +103,82 @@ func Excel2CSV(excelFile string) error {
 	return nil
 }
 
-func Excel2Json() {
+func Excel2Json(excelFile string) (string, error) {
+	f, err := excelize.OpenFile(excelFile)
+	if err != nil {
+		fmt.Println(err)
+		return "", err
+	}
 
+	xlFilePath, _ := filepath.Abs(excelFile)
+	dirPath := filepath.Dir(xlFilePath)
+	fmt.Println("Excel File Path: ", xlFilePath)
+
+	// Get the name of the first sheet
+	sheetName := f.GetSheetName(0)
+
+	jsonFile := filepath.Join(dirPath, sheetName+".json")
+
+	// Get the rows from the sheet
+	rows, err := f.GetRows(sheetName)
+	if err != nil {
+		fmt.Println(err)
+		return "", err
+	}
+
+	// Create a slice to hold the JSON data
+	data := []map[string]string{}
+
+	// Get the headers from the first row
+	headers := rows[0]
+
+	// Loop through the remaining rows
+	for i := 1; i < len(rows); i++ {
+		// Create a map to hold the row data
+		rowData := make(map[string]string)
+
+		// Loop through the cells in the row
+		for j, cellValue := range rows[i] {
+			// Add the cell value to the row data map with the header as the key
+			rowData[headers[j]] = cellValue
+		}
+
+		// Add the row data map to the slice
+		data = append(data, rowData)
+	}
+
+	// Convert the data slice to JSON
+	jsonData, err := json.MarshalIndent(data, "", "  ")
+	if err != nil {
+		fmt.Println(err)
+		return "", err
+	}
+
+	// Write the JSON data to a file
+	err = WriteFile(jsonFile, jsonData)
+	if err != nil {
+		fmt.Println(err)
+		return "", err
+	}
+
+	fmt.Println("Conversion complete")
+	return jsonFile, nil
+}
+
+// WriteFile writes data to a file at the specified path
+func WriteFile(path string, data []byte) error {
+	file, err := os.Create(path)
+	if err != nil {
+		return err
+	}
+	defer file.Close()
+
+	_, err = file.Write(data)
+	if err != nil {
+		return err
+	}
+
+	return nil
 }
 
 func write2csv(rows [][]string, cFile *os.File) {
