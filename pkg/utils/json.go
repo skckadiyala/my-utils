@@ -58,17 +58,21 @@ func ProvarResults2Splunk(excelFile, splunkHost, splunkPort, userName, password,
 		}
 
 		testPath := fmt.Sprintf("%v", jsonData["testPath"])
-
-		pathList := strings.Split(testPath, "\\")
+		var pathList []string
+		if strings.Contains(testPath, "\\") {
+			pathList = strings.Split(testPath, "\\")
+		} else if strings.Contains(testPath, "/") {
+			pathList = strings.Split(testPath, "/")
+		}
 
 		// fmt.Println("TestType:", string(os.PathSeparator), jsonData["TestPath"])
 
 		jsonData["testType"] = pathList[2]
-		jsonData["functionlaity"] = pathList[3]
+		jsonData["functionality"] = pathList[3]
 		// Add more fields to the map
 		jsonData["jobName"] = os.Getenv("BUILD_DEFINITIONNAME")
 		jsonData["runID"] = os.Getenv("BUILD_BUILDNUMBER")
-		jsonData["releaseNo"] = os.Getenv("ReleaseID")
+		jsonData["releaseNo"] = os.Getenv("ReleaseNo")
 		jsonData["environment"] = os.Getenv("Environment")
 		jsonData["productTeam"] = os.Getenv("productTeam")
 
