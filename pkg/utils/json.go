@@ -17,7 +17,7 @@ func ProvarResults2Splunk(excelFile, splunkHost, splunkPort, userName, password,
 	splunkUrl := "https://" + splunkHost + ":" + splunkPort
 	jsonArrayFile, err := Excel2Json(excelFile)
 	if err != nil {
-		fmt.Println(err)
+		// fmt.Println(err)
 		return err
 	}
 
@@ -30,7 +30,7 @@ func ProvarResults2Splunk(excelFile, splunkHost, splunkPort, userName, password,
 
 	jsonFile, err := ioutil.ReadFile(jsonArrayFile)
 	if err != nil {
-		fmt.Println(err)
+		// fmt.Println(err)
 		return err
 	}
 
@@ -45,7 +45,7 @@ func ProvarResults2Splunk(excelFile, splunkHost, splunkPort, userName, password,
 	for cnt, obj := range data {
 		jsonObj, err := json.Marshal(obj)
 		if err != nil {
-			fmt.Println(err)
+			// fmt.Println(err)
 			return err
 		}
 		// Print each JSON object as a string
@@ -53,7 +53,7 @@ func ProvarResults2Splunk(excelFile, splunkHost, splunkPort, userName, password,
 
 		err = json.Unmarshal(jsonObj, &jsonData)
 		if err != nil {
-			fmt.Println(err)
+			// fmt.Println(err)
 			return err
 		}
 
@@ -79,7 +79,7 @@ func ProvarResults2Splunk(excelFile, splunkHost, splunkPort, userName, password,
 		// Marshal the map back to JSON
 		jsonObject, err := json.Marshal(jsonData)
 		if err != nil {
-			fmt.Println(err)
+			// fmt.Println(err)
 			return err
 		}
 		fmt.Printf("Test Result %v ", cnt+1)

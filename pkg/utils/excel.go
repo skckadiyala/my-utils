@@ -1,6 +1,7 @@
 package utils
 
 import (
+	"errors"
 	"fmt"
 	"os"
 	"path/filepath"
@@ -106,7 +107,6 @@ func Excel2CSV(excelFile string) error {
 func Excel2Json(excelFile string) (string, error) {
 	f, err := excelize.OpenFile(excelFile)
 	if err != nil {
-		fmt.Println(err)
 		return "", err
 	}
 
@@ -128,9 +128,16 @@ func Excel2Json(excelFile string) (string, error) {
 
 	// Create a slice to hold the JSON data
 	data := []map[string]string{}
+	var headers []string
 
-	// Get the headers from the first row
-	headers := rows[0]
+	if len(rows) == 0 {
+		// fmt.Println("The Excel sheet is empty")
+		return "", errors.New("the excel sheet is empty")
+	} else {
+		// Get the headers from the first row
+		fmt.Println("length: ", len(rows))
+		headers = rows[0]
+	}
 
 	// Loop through the remaining rows
 	for i := 1; i < len(rows); i++ {
