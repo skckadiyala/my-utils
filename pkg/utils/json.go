@@ -10,6 +10,7 @@ import (
 	"net/http"
 	"os"
 	"strings"
+	"time"
 )
 
 func ProvarResults2Splunk(excelFile, splunkHost, splunkPort, userName, password, source, index string) error {
@@ -75,6 +76,65 @@ func ProvarResults2Splunk(excelFile, splunkHost, splunkPort, userName, password,
 		jsonData["releaseNo"] = os.Getenv("ReleaseNo")
 		jsonData["environment"] = os.Getenv("Environment")
 		jsonData["productTeam"] = os.Getenv("productTeam")
+
+		// Marshal the map back to JSON
+		jsonObject, err := json.Marshal(jsonData)
+		if err != nil {
+			// fmt.Println(err)
+			return err
+		}
+		fmt.Printf("Test Result %v ", cnt+1)
+		// fmt.Printf("Test Result %v : %v \n", cnt+1, string(jsonObject))
+		PostResults(splunkUrl, source, index, basicAuth, jsonObject)
+		// Print the new JSON object
+
+	}
+	return nil
+}
+
+func Json2Splunk(jsonArrayFile, splunkHost, splunkPort, userName, password, source, index string) error {
+
+	splunkUrl := "https://" + splunkHost + ":" + splunkPort
+
+	userData := []byte(userName + ":" + password)
+	basicAuth := base64.StdEncoding.EncodeToString(userData)
+	fmt.Println("Basic Auth: ", basicAuth)
+
+	var data []map[string]interface{}
+	var jsonData map[string]interface{}
+
+	jsonFile, err := ioutil.ReadFile(jsonArrayFile)
+	if err != nil {
+		// fmt.Println(err)
+		return err
+	}
+
+	// Unmarshal the JSON array into a slice of maps
+	err = json.Unmarshal(jsonFile, &data)
+	if err != nil {
+		fmt.Println(err)
+		return err
+	}
+
+	// Loop through the slice and marshal each map to JSON
+	for cnt, obj := range data {
+		jsonObj, err := json.Marshal(obj)
+		if err != nil {
+			// fmt.Println(err)
+			return err
+		}
+		// Print each JSON object as a string
+		// fmt.Println(string(jsonObj))
+
+		err = json.Unmarshal(jsonObj, &jsonData)
+		if err != nil {
+			// fmt.Println(err)
+			return err
+		}
+
+		currentTime := time.Now()
+
+		jsonData["testDate"] = currentTime.Format("2006.01.02 15:04:05")
 
 		// Marshal the map back to JSON
 		jsonObject, err := json.Marshal(jsonData)
