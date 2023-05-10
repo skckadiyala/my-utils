@@ -9,7 +9,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var version string = "1.0.2"
+var version string = "1.0.3"
 
 // convertCmd represents the convert command
 var convertCmd = &cobra.Command{

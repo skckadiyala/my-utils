@@ -40,8 +40,17 @@ func CSV2Excel(csvFile, excelFile string) error {
 		return err
 	}
 
+	fmt.Println("excel file path: ", xlFile)
+
 	// Create a new Excel file
-	f := excelize.NewFile()
+	// f := excelize.NewFile()
+	f, err := excelize.OpenFile(xlFile)
+	if err != nil {
+		fmt.Println("File do not exits: Creating a new file")
+		f = excelize.NewFile()
+	} else {
+		f.DeleteSheet(sheetName)
+	}
 
 	index, err := f.NewSheet(sheetName)
 	if err != nil {

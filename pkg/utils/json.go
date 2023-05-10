@@ -59,6 +59,7 @@ func ProvarResults2Splunk(excelFile, splunkHost, splunkPort, userName, password,
 		}
 
 		testPath := fmt.Sprintf("%v", jsonData["testPath"])
+
 		var pathList []string
 		if strings.Contains(testPath, "\\") {
 			pathList = strings.Split(testPath, "\\")
@@ -67,15 +68,15 @@ func ProvarResults2Splunk(excelFile, splunkHost, splunkPort, userName, password,
 		}
 
 		// fmt.Println("TestType:", string(os.PathSeparator), jsonData["TestPath"])
-
+		fmt.Println("TestPath:", testPath, pathList[2])
 		jsonData["testType"] = pathList[2]
 		jsonData["functionality"] = pathList[3]
 		// Add more fields to the map
 		jsonData["jobName"] = os.Getenv("BUILD_DEFINITIONNAME")
 		jsonData["runID"] = os.Getenv("BUILD_BUILDNUMBER")
-		jsonData["releaseNo"] = os.Getenv("ReleaseNo")
-		jsonData["environment"] = os.Getenv("Environment")
-		jsonData["productTeam"] = os.Getenv("productTeam")
+		// jsonData["releaseNo"] = os.Getenv("ReleaseNo")
+		// jsonData["environment"] = os.Getenv("Environment")
+		// jsonData["productTeam"] = os.Getenv("productTeam")
 
 		// Marshal the map back to JSON
 		jsonObject, err := json.Marshal(jsonData)
@@ -83,8 +84,8 @@ func ProvarResults2Splunk(excelFile, splunkHost, splunkPort, userName, password,
 			// fmt.Println(err)
 			return err
 		}
-		fmt.Printf("Test Result %v ", cnt+1)
-		// fmt.Printf("Test Result %v : %v \n", cnt+1, string(jsonObject))
+		// fmt.Printf("Test Result %v ", cnt+1)
+		fmt.Printf("Test Result %v : %v \n", cnt+1, string(jsonObject))
 		PostResults(splunkUrl, source, index, basicAuth, jsonObject)
 		// Print the new JSON object
 
@@ -177,3 +178,54 @@ func PostResults(splunkHost, source, index, auth string, postReq []byte) {
 	// fmt.Println("response Body:", string(body))
 
 }
+
+// func ConvertJMeterResults(spURL, auth string, jmObj map[string]interface{}) {
+// 	jsonMap := make(map[string]interface{})
+// 	reqBodyValue, _ := json.Marshal(jmObj)
+// 	results := testData{}
+
+// 	json.Unmarshal(reqBodyValue, &jsonMap)
+
+// 	req := strings.Split(fmt.Sprintf("%v", jsonMap["threadName"]), " ")
+// 	ts := ""
+// 	for t := 0; t < len(req)-1; t++ {
+// 		if t < 1 {
+// 			ts = ts + "" + req[t]
+// 		} else {
+// 			ts = ts + " " + req[t]
+// 		}
+// 	}
+// 	i, err := strconv.ParseInt(fmt.Sprintf("%v", jsonMap["timeStamp"]), 10, 64)
+// 	if err != nil {
+// 		panic(err)
+// 	}
+// 	tm := time.UnixMilli(i)
+// 	results.TestSuite = ts
+// 	results.TestName = fmt.Sprintf("%v", jsonMap["label"])
+// 	results.TestStatus = fmt.Sprintf("%v", jsonMap["success"])
+// 	results.TestURL = fmt.Sprintf("%v", jsonMap["URL"])
+// 	results.TestTime = tm.Format("15:04:05.000")
+// 	results.TestDate = tm.Format("2006-01-02")
+
+// 	results.ExecutionTime = fmt.Sprintf("%v", jsonMap["Latency"])
+// 	results.Reason = fmt.Sprintf("%v", jsonMap["failureMessage"])
+// 	results.HttpResponse = fmt.Sprintf("%v", jsonMap["responseMessage"])
+// 	results.StatusCode = fmt.Sprintf("%v", jsonMap["responseCode"])
+// 	results.AutomationTool = "JMeter"
+
+// 	results.BuildNo = os.Getenv("Build")           // Jenkins Variable or can be blank
+// 	results.ReleaseNo = os.Getenv("Release")       // Jenkins Variable or can be blank
+// 	results.Environment = os.Getenv("Environment") // Jenkins Variable
+// 	results.Tenant = os.Getenv("Tenant")           // Jenkins Variable
+// 	results.Priority = os.Getenv("Priority")       // Jenkins Variable
+
+// 	results.Microsite = os.Getenv("Microsite")     // Jenkins Variable
+// 	results.Platform = os.Getenv("Platform")       // Jenkins Variable
+// 	results.ProductTeam = os.Getenv("ProductTeam") //Jenkins Variable
+// 	results.RunID = os.Getenv("BUILD_NUMBER")      // Jenkins JobID
+// 	results.JobName = os.Getenv("JOB_NAME")        // Jenkins JobID
+
+// 	PostResults(spURL, sourceType, index, auth, jmObj, results)
+// 	// 	reqBodyValue, _ = json.Marshal(results)
+// 	// 	fmt.Println(string(reqBodyValue))
+// }
