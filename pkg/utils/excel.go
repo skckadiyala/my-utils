@@ -135,7 +135,7 @@ func Excel2Json(excelFile string) (string, error) {
 		return "", errors.New("the excel sheet is empty")
 	} else {
 		// Get the headers from the first row
-		fmt.Println("length: ", len(rows))
+		// fmt.Println("length: ", len(rows))
 		headers = rows[0]
 	}
 
@@ -147,7 +147,11 @@ func Excel2Json(excelFile string) (string, error) {
 		// Loop through the cells in the row
 		for j, cellValue := range rows[i] {
 			// Add the cell value to the row data map with the header as the key
-			rowData[headers[j]] = cellValue
+			if len(cellValue) < 1000 {
+				rowData[headers[j]] = cellValue
+			} else {
+				rowData[headers[j]] = cellValue[0:1000]
+			}
 		}
 
 		// Add the row data map to the slice

@@ -24,7 +24,7 @@ func ProvarResults2Splunk(excelFile, splunkHost, splunkPort, userName, password,
 
 	userData := []byte(userName + ":" + password)
 	basicAuth := base64.StdEncoding.EncodeToString(userData)
-	fmt.Println("Basic Auth: ", basicAuth)
+	// fmt.Println("Basic Auth: ", basicAuth)
 
 	var data []map[string]interface{}
 	var jsonData map[string]interface{}
@@ -68,7 +68,7 @@ func ProvarResults2Splunk(excelFile, splunkHost, splunkPort, userName, password,
 		}
 
 		// fmt.Println("TestType:", string(os.PathSeparator), jsonData["TestPath"])
-		fmt.Println("TestPath:", testPath, pathList[2])
+		// fmt.Println("TestPath:", testPath, pathList[2])
 		jsonData["testType"] = pathList[2]
 		jsonData["functionality"] = pathList[3]
 		// Add more fields to the map
@@ -84,8 +84,8 @@ func ProvarResults2Splunk(excelFile, splunkHost, splunkPort, userName, password,
 			// fmt.Println(err)
 			return err
 		}
-		// fmt.Printf("Test Result %v ", cnt+1)
-		fmt.Printf("Test Result %v : %v \n", cnt+1, string(jsonObject))
+		fmt.Printf("Test Result %v ", cnt+1)
+		// fmt.Printf("Test Result %v : %v \n", cnt+1, string(jsonObject))
 		PostResults(splunkUrl, source, index, basicAuth, jsonObject)
 		// Print the new JSON object
 
@@ -99,7 +99,7 @@ func Json2Splunk(jsonArrayFile, splunkHost, splunkPort, userName, password, sour
 
 	userData := []byte(userName + ":" + password)
 	basicAuth := base64.StdEncoding.EncodeToString(userData)
-	fmt.Println("Basic Auth: ", basicAuth)
+	// fmt.Println("Basic Auth: ", basicAuth)
 
 	var data []map[string]interface{}
 	var jsonData map[string]interface{}
