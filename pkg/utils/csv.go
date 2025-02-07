@@ -85,19 +85,27 @@ func CSV2Excel(csvFile, excelFile string) error {
 	return nil
 }
 
-func CSV2Json(cFile, jFile string) error {
+func CSV2Json(cFile string) (string, error) {
 	csvFile, err := os.Open(cFile)
 	if err != nil {
 		fmt.Println("Open Error", err)
-		return err
+		return "", err
 	}
 	defer csvFile.Close()
 
+	// get the file name and exetention for csvFile
+	csvFilePath, _ := filepath.Abs(cFile)
+	dirPath := filepath.Dir(csvFilePath)
+	cFileName := filepath.Base(cFile)
+	ext := filepath.Ext(cFile)
+	fileName := strings.TrimSuffix(cFileName, ext)
+	jFile := filepath.Join(dirPath, fileName)
+
 	// Create a new JSON file
-	jsonFile, err := os.Create(jFile)
+	jsonFile, err := os.Create(jFile + ".json")
 	if err != nil {
 		fmt.Println(err)
-		return err
+		return "", err
 	}
 	defer jsonFile.Close()
 
@@ -107,7 +115,7 @@ func CSV2Json(cFile, jFile string) error {
 	headers, err := reader.Read() // Read the headers
 	if err != nil {
 		fmt.Println(err)
-		return err
+		return "", err
 	}
 
 	// Loop through the records and convert them to a JSON object
@@ -119,7 +127,7 @@ func CSV2Json(cFile, jFile string) error {
 		}
 		if err != nil {
 			fmt.Println(err)
-			return err
+			return "", err
 		}
 
 		// Convert the record to a map[string]string
@@ -138,12 +146,15 @@ func CSV2Json(cFile, jFile string) error {
 	jsonData, err := json.MarshalIndent(records, "", "  ")
 	if err != nil {
 		fmt.Println(err)
-		return err
+		return "", err
 	}
 	_, err = jsonFile.Write(jsonData)
 	if err != nil {
 		fmt.Println(err)
-		return err
+		return "", err
 	}
-	return nil
+
+	fmt.Println("Converted JSON file stored at:", jFile+".json")
+	// fmt.Println("Converted JSON file stored at: ", string(jsonData))
+	return jFile + ".json", nil
 }

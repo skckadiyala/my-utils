@@ -70,7 +70,9 @@ Cobra is a CLI library for Go that empowers applications.
 This application is a tool to generate the needed files
 to quickly create a Cobra application.`,
 	RunE: func(cmd *cobra.Command, args []string) error {
-		return utils.CSV2Json(csvfile, jsonfile)
+		_, err := utils.CSV2Json(csvfile)
+		return err
+		// return utils.CSV2Json(csvfile, jsonfile)
 		// return xlsx2csv()
 		// fmt.Println("excel2csv called")
 
@@ -96,12 +98,32 @@ to quickly create a Cobra application.`,
 	},
 }
 
+var jMeter2SplunkCmd = &cobra.Command{
+	Use:   "jMeter2SplunkCmd",
+	Short: "Push Provar results from JMeter csv to Splunk",
+	Long: `Push Provar Results to Splunk, In this the excel results sheet is converted to json 
+	and push the json results to splunk. For example:
+
+	myutils convert provar2splunk -H <splunkhost> -u <splunk user> -p <splunk password>  -s <source splunk> -x resources/TestExecutionReport.xlsx
+
+Cobra is a CLI library for Go that empowers applications.
+This application is a tool to generate the needed files
+to quickly create a Cobra application.`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		return utils.JMeterResults2Splunk(csvfile, splunkHost, splunkPort, userName, password, source, index)
+		// return xlsx2csv()
+		// fmt.Println("excel2csv called")
+
+	},
+}
+
 func init() {
 	convertCmd.AddCommand(xlsheet2csvCmd)
 	convertCmd.AddCommand(excel2csvCmd)
 	convertCmd.AddCommand(csv2excelCmd)
 	convertCmd.AddCommand(csv2jsonCmd)
 	convertCmd.AddCommand(push2splunkCmd)
+	convertCmd.AddCommand(jMeter2SplunkCmd)
 
 	xlsheet2csvCmd.Flags().StringVarP(&xlsxFile, "xlsxfile", "x", "", "The filename of the excel file")
 	xlsheet2csvCmd.MarkFlagRequired("xlsxfile")
@@ -120,8 +142,8 @@ func init() {
 
 	csv2jsonCmd.Flags().StringVarP(&csvfile, "csvfile", "c", "", "The filename of the csv file")
 	csv2jsonCmd.MarkFlagRequired("csvfile")
-	csv2jsonCmd.Flags().StringVarP(&jsonfile, "jsonfile", "j", "", "The filename of the Json file")
-	csv2jsonCmd.MarkFlagRequired("jsonfile")
+	// csv2jsonCmd.Flags().StringVarP(&jsonfile, "jsonfile", "j", "", "The filename of the Json file")
+	// csv2jsonCmd.MarkFlagRequired("jsonfile")
 
 	push2splunkCmd.Flags().StringVarP(&xlsxFile, "xlsxFile", "x", "", "Provide the filename of the excel file")
 	push2splunkCmd.MarkFlagRequired("jsonfile")
@@ -136,6 +158,21 @@ func init() {
 	push2splunkCmd.Flags().StringVarP(&source, "source", "s", "", "Provide the splunk source name")
 	push2splunkCmd.MarkFlagRequired("source")
 	push2splunkCmd.Flags().StringVarP(&index, "index", "i", "sdlc", "Provide the splunk index file")
+
+	jMeter2SplunkCmd.Flags().StringVarP(&csvfile, "csvFile", "c", "", "Provide the filename of the Jmeter Results csv file")
+	jMeter2SplunkCmd.MarkFlagRequired("jsonfile")
+	jMeter2SplunkCmd.Flags().StringVarP(&splunkHost, "splunkHost", "H", "", "Provide the host name")
+	jMeter2SplunkCmd.MarkFlagRequired("splunkHost")
+	jMeter2SplunkCmd.Flags().StringVarP(&splunkPort, "splunkPort", "P", "8089", "Provide the splunk port name")
+	// push2splunkCmd.MarkFlagRequired("splunkPort")
+	jMeter2SplunkCmd.Flags().StringVarP(&userName, "userName", "u", "", "Provide the username of splunk")
+	jMeter2SplunkCmd.MarkFlagRequired("userName")
+	jMeter2SplunkCmd.Flags().StringVarP(&password, "password", "p", "", "Provide the password of splunk")
+	jMeter2SplunkCmd.MarkFlagRequired("password")
+	jMeter2SplunkCmd.Flags().StringVarP(&source, "source", "s", "", "Provide the splunk source name")
+	jMeter2SplunkCmd.MarkFlagRequired("source")
+	jMeter2SplunkCmd.Flags().StringVarP(&index, "index", "i", "sdlc", "Provide the splunk index file")
+
 	// push2splunkCmd.MarkFlagRequired("index")
 
 	// -H splnkfrprdvh3 -u SplunkApi -p s#uVUheSwA5W -s CDW_ECommerceWeb_TestAutomation -i sdlc

@@ -1,0 +1,5 @@
+timeStamp,elapsed,label,responseCode,responseMessage,threadName,dataType,success,failureMessage,bytes,sentBytes,grpThreads,allThreads,URL,Latency,IdleTime,Connect
+1690307529557,338,Healthcheck Diagnostics nentech V0 page Post,200,OK,Epro Sessions Tests 1-1,text,true,,20147,242,1,1,https://webqaint1vha-proxy.corp.cdw.com/integrations/diagnostics,331,0,301
+1690307530635,49,Healthcheck Diagnostics Genentech V2 page Post,200,OK,Epro Sessions Tests 1-1,text,true,,19820,243,1,1,https://webqaint1vha-proxy.corp.cdwg.com/integrations/diagnostics,49,0,17
+1690307530688,38,Healthcheck Diagnostics CDW Test Account,200,OK,Epro Sessions Tests 1-1,text,true,,19393,241,1,1,https://webqaint1vha-proxy.corp.cdw.ca/integrations/diagnostics,37,0,15
+1690307530728,11,Healthcheck Handoff  AMD US,200,OK,Epro Sessions Tests 1-1,text,true,,8138,242,1,1,https://webqaint1vha-proxy.corp.cdw.com/integrations/healthcheck,11,0,0
