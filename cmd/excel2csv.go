@@ -98,6 +98,23 @@ to quickly create a Cobra application.`,
 	},
 }
 
+var postman2SplunkCmd = &cobra.Command{
+	Use:   "postman2splunk",
+	Short: "Push postman results to Splunk",
+	Long: `Push postman results to Splunk, In this the postman json report is converted to custom json 
+	and push the json results to splunk. For example:
+
+	myutils convert postman2splunk -H <splunkhost> -u <splunk user> -p <splunk password>  -s <source splunk> -r testResults.json
+
+Cobra is a CLI library for Go that empowers applications.
+This application is a tool to generate the needed files
+to quickly create a Cobra application.`,
+	RunE: func(cmd *cobra.Command, args []string) error {
+		return utils.PostmanResults2Splunk(resultsFile, splunkHost, splunkPort, userName, password, source, index)
+
+	},
+}
+
 var jMeter2SplunkCmd = &cobra.Command{
 	Use:   "jMeter2SplunkCmd",
 	Short: "Push Provar results from JMeter csv to Splunk",
@@ -124,6 +141,7 @@ func init() {
 	convertCmd.AddCommand(csv2jsonCmd)
 	convertCmd.AddCommand(push2splunkCmd)
 	convertCmd.AddCommand(jMeter2SplunkCmd)
+	convertCmd.AddCommand(postman2SplunkCmd)
 
 	xlsheet2csvCmd.Flags().StringVarP(&xlsxFile, "xlsxfile", "x", "", "The filename of the excel file")
 	xlsheet2csvCmd.MarkFlagRequired("xlsxfile")
@@ -173,6 +191,19 @@ func init() {
 	jMeter2SplunkCmd.MarkFlagRequired("source")
 	jMeter2SplunkCmd.Flags().StringVarP(&index, "index", "i", "sdlc", "Provide the splunk index file")
 
+	postman2SplunkCmd.Flags().StringVarP(&resultsFile, "resultsFile", "x", "", "Provide the filename of the json results file")
+	postman2SplunkCmd.MarkFlagRequired("jsonfile")
+	postman2SplunkCmd.Flags().StringVarP(&splunkHost, "splunkHost", "H", "", "Provide the host name")
+	postman2SplunkCmd.MarkFlagRequired("splunkHost")
+	postman2SplunkCmd.Flags().StringVarP(&splunkPort, "splunkPort", "P", "8089", "Provide the splunk port name")
+	// push2splunkCmd.MarkFlagRequired("splunkPort")
+	postman2SplunkCmd.Flags().StringVarP(&userName, "userName", "u", "", "Provide the username of splunk")
+	postman2SplunkCmd.MarkFlagRequired("userName")
+	postman2SplunkCmd.Flags().StringVarP(&password, "password", "p", "", "Provide the password of splunk")
+	postman2SplunkCmd.MarkFlagRequired("password")
+	postman2SplunkCmd.Flags().StringVarP(&source, "source", "s", "", "Provide the splunk source name")
+	postman2SplunkCmd.MarkFlagRequired("source")
+	postman2SplunkCmd.Flags().StringVarP(&index, "index", "i", "sdlc", "Provide the splunk index file")
 	// push2splunkCmd.MarkFlagRequired("index")
 
 	// -H splnkfrprdvh3 -u SplunkApi -p s#uVUheSwA5W -s CDW_ECommerceWeb_TestAutomation -i sdlc

@@ -1,0 +1,1190 @@
+{
+    "run": {
+      "meta": {
+        "collectionId": "ec31a643-bfa1-4b5b-bb1a-19d9e11b5d02",
+        "collectionName": "INTEGRATIONS EPRO APIS",
+        "started": 1739310785044,
+        "completed": 1739310789227,
+        "duration": 4183
+      },
+      "summary": {
+        "iterations": {
+          "executed": 1,
+          "errors": 0
+        },
+        "executedRequests": {
+          "executed": 23,
+          "errors": 0
+        },
+        "prerequestScripts": {
+          "executed": 23,
+          "errors": 0
+        },
+        "postresponseScripts": {
+          "executed": 23,
+          "errors": 0
+        },
+        "tests": {
+          "executed": 33,
+          "failed": 0,
+          "passed": 33,
+          "skipped": 0
+        },
+        "timeStats": {
+          "responseAverage": 163.7391304347826,
+          "responseMin": 69,
+          "responseMax": 1817,
+          "responseStandardDeviation": 356.2703196208213
+        }
+      },
+      "executions": [
+        {
+          "iterationCount": 0,
+          "requestExecuted": {
+            "id": "483a4777-e393-424b-bcba-bac0efb4947f",
+            "name": "token",
+            "url": {
+              "protocol": "https",
+              "path": [
+                "v6.0",
+                "epro",
+                "token"
+              ],
+              "host": [
+                "rest-qa-external",
+                "corp",
+                "cdw",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST"
+          },
+          "response": {
+            "id": "a0899e2b-3de1-4506-bfe6-4e64afa23cfc",
+            "_details": {
+              "name": "OK",
+              "detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action.",
+              "code": 200,
+              "standardName": "OK"
+            },
+            "status": "OK",
+            "code": 200,
+            "cookies": [],
+            "responseTime": 319,
+            "responseSize": 801,
+            "downloadedBytes": 801
+          },
+          "tests": [
+            {
+              "name": "Status code is 200",
+              "error": {
+                "name": "AssertionError",
+                "index": 0,
+                "test": "Status code is 200",
+                "message": "expected response to have status code 200 but got 404",
+                "stack": "AssertionError: expected response to have status code 200 but got 404\n   at Object.eval sandbox-script.js:1:25)"
+              },
+              "status": "passed"
+            },
+            {
+              "name": "get Access Token",
+              "status": "passed"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "iterationCount": 0,
+          "requestExecuted": {
+            "id": "49a2cadf-d77c-4f1c-863a-02b84942e96d",
+            "name": "user Authentication",
+            "url": {
+              "protocol": "https",
+              "path": [
+                "v6.0",
+                "epro",
+                "admin",
+                "userauthentication"
+              ],
+              "host": [
+                "rest-qa-external",
+                "corp",
+                "cdw",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST"
+          },
+          "response": {
+            "id": "b628d37d-bab9-402a-91ac-1c3325baf8f8",
+            "_details": {
+              "name": "OK",
+              "detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action.",
+              "code": 200,
+              "standardName": "OK"
+            },
+            "status": "OK",
+            "code": 200,
+            "cookies": [],
+            "responseTime": 72,
+            "responseSize": 2437,
+            "downloadedBytes": 2437
+          },
+          "tests": [
+            {
+              "name": "Status code is 200",
+              "status": "passed"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "iterationCount": 0,
+          "requestExecuted": {
+            "id": "6838a10a-7b52-4c72-9277-c2a9c391b7b1",
+            "name": "user Migrated To 1Code",
+            "url": {
+              "protocol": "https",
+              "path": [
+                "v6.0",
+                "epro",
+                "admin",
+                "userauthentication",
+                "migration"
+              ],
+              "host": [
+                "rest-qa-external",
+                "corp",
+                "cdw",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST"
+          },
+          "response": {
+            "id": "af974f30-ccb8-45b6-8d71-e4c976210edb",
+            "_details": {
+              "name": "OK",
+              "detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action.",
+              "code": 200,
+              "standardName": "OK"
+            },
+            "status": "OK",
+            "code": 200,
+            "cookies": [],
+            "responseTime": 76,
+            "responseSize": 5,
+            "downloadedBytes": 5
+          },
+          "tests": [
+            {
+              "name": "Status code is 200",
+              "status": "passed"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "iterationCount": 0,
+          "requestExecuted": {
+            "id": "38ee1f52-6d21-4bf1-9122-0de8cbf75bed",
+            "name": "blank Session New Json",
+            "url": {
+              "protocol": "https",
+              "path": [
+                "v6.0",
+                "epro",
+                "session",
+                "Create",
+                "Json"
+              ],
+              "host": [
+                "rest-qa-external",
+                "corp",
+                "cdw",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST"
+          },
+          "response": {
+            "id": "15acdc26-7a0e-421c-a3a0-6ccc5640706e",
+            "_details": {
+              "name": "Created",
+              "detail": "The request has been fulfilled and resulted in a new resource being created.",
+              "code": 201,
+              "standardName": "Created"
+            },
+            "status": "Created",
+            "code": 201,
+            "cookies": [],
+            "responseTime": 71,
+            "responseSize": 413,
+            "downloadedBytes": 413
+          },
+          "tests": [
+            {
+              "name": "Body matches isIntermediateCheckout",
+              "status": "passed"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "iterationCount": 0,
+          "requestExecuted": {
+            "id": "f3129428-c2e1-45fe-a4e3-e52d3d9d8606",
+            "name": "blank Session New Punchout",
+            "url": {
+              "protocol": "https",
+              "path": [
+                "v6.0",
+                "epro",
+                "session",
+                "Create",
+                "Punchout"
+              ],
+              "host": [
+                "rest-qa-external",
+                "corp",
+                "cdw",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST"
+          },
+          "response": {
+            "id": "67010753-dc70-4ed1-8f38-614b95ecf7f8",
+            "_details": {
+              "name": "Created",
+              "detail": "The request has been fulfilled and resulted in a new resource being created.",
+              "code": 201,
+              "standardName": "Created"
+            },
+            "status": "Created",
+            "code": 201,
+            "cookies": [],
+            "responseTime": 71,
+            "responseSize": 409,
+            "downloadedBytes": 409
+          },
+          "tests": [
+            {
+              "name": "Status code is 200",
+              "status": "passed"
+            },
+            {
+              "name": "Verify the tranformationType PunchOut",
+              "status": "passed"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "iterationCount": 0,
+          "requestExecuted": {
+            "id": "bf9d0e05-956e-4cb7-a759-7d043610635f",
+            "name": "blank Session New RoundTrip",
+            "url": {
+              "protocol": "https",
+              "path": [
+                "v6.0",
+                "epro",
+                "session",
+                "Create",
+                "RoundTrip"
+              ],
+              "host": [
+                "rest-qa-external",
+                "corp",
+                "cdw",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST"
+          },
+          "response": {
+            "id": "fc1303d6-1c58-4d75-9ce0-8b8d3c4e7f65",
+            "_details": {
+              "name": "Created",
+              "detail": "The request has been fulfilled and resulted in a new resource being created.",
+              "code": 201,
+              "standardName": "Created"
+            },
+            "status": "Created",
+            "code": 201,
+            "cookies": [],
+            "responseTime": 74,
+            "responseSize": 419,
+            "downloadedBytes": 419
+          },
+          "tests": [
+            {
+              "name": "Status code is 200",
+              "status": "passed"
+            },
+            {
+              "name": "Verify the tranformationType RoundTrip",
+              "status": "passed"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "iterationCount": 0,
+          "requestExecuted": {
+            "id": "188898be-4377-4332-a14d-3066124df97b",
+            "name": "user To Security Group",
+            "url": {
+              "protocol": "https",
+              "path": [
+                "v6.0",
+                "epro",
+                "AddUserToSecurityGroup"
+              ],
+              "host": [
+                "rest-qa-external",
+                "corp",
+                "cdw",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST"
+          },
+          "response": {
+            "id": "7cbdb639-3720-42a2-b4b0-c8303c17378e",
+            "_details": {
+              "name": "OK",
+              "detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action.",
+              "code": 200,
+              "standardName": "OK"
+            },
+            "status": "OK",
+            "code": 200,
+            "cookies": [],
+            "responseTime": 71,
+            "responseSize": 78,
+            "downloadedBytes": 78
+          },
+          "tests": [
+            {
+              "name": "Status code is 200",
+              "status": "passed"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "iterationCount": 0,
+          "requestExecuted": {
+            "id": "fd84f73e-69c7-45dc-ad2a-3377ef0f458c",
+            "name": "partner Settings With New Key",
+            "url": {
+              "protocol": "https",
+              "path": [
+                "v6.0",
+                "epro",
+                "partnersettings",
+                "add"
+              ],
+              "host": [
+                "rest-qa-external",
+                "corp",
+                "cdw",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST"
+          },
+          "response": {
+            "id": "9441d01b-298b-46e9-b18a-3dd5ef1433de",
+            "_details": {
+              "name": "Created",
+              "detail": "The request has been fulfilled and resulted in a new resource being created.",
+              "code": 201,
+              "standardName": "Created"
+            },
+            "status": "Created",
+            "code": 201,
+            "cookies": [],
+            "responseTime": 75,
+            "responseSize": 2,
+            "downloadedBytes": 2
+          },
+          "tests": [
+            {
+              "name": "Status code is 201",
+              "status": "passed"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "iterationCount": 0,
+          "requestExecuted": {
+            "id": "435dca7a-12bc-44d4-b0f4-210f1a7a2361",
+            "name": "update Partner Settings For Newly Added Key",
+            "url": {
+              "protocol": "https",
+              "path": [
+                "v6.0",
+                "epro",
+                "partnersettings",
+                "update",
+                "137683C71AE74F18B0860E010B9D1170"
+              ],
+              "host": [
+                "rest-qa-external",
+                "corp",
+                "cdw",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST"
+          },
+          "response": {
+            "id": "2bf7b3c1-7eb6-45bd-9da4-500b53d23583",
+            "_details": {
+              "name": "Accepted",
+              "detail": "The request has been accepted for processing, but the processing has not been completed. The request might or might not eventually be acted upon, as it might be disallowed when processing actually takes place.",
+              "code": 202,
+              "standardName": "Accepted"
+            },
+            "status": "Accepted",
+            "code": 202,
+            "cookies": [],
+            "responseTime": 79,
+            "responseSize": 2,
+            "downloadedBytes": 2
+          },
+          "tests": [
+            {
+              "name": "Status code is 202",
+              "status": "passed"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "iterationCount": 0,
+          "requestExecuted": {
+            "id": "a641aa34-3c92-490a-97f1-3a26c71619ca",
+            "name": "all Partner Settings By Key For Newly Added Key",
+            "url": {
+              "protocol": "https",
+              "path": [
+                "v6.0",
+                "epro",
+                "partnersettings",
+                "get",
+                "137683C71AE74F18B0860E010B9D1170"
+              ],
+              "host": [
+                "rest-qa-external",
+                "corp",
+                "cdw",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET"
+          },
+          "response": {
+            "id": "793fad6f-f0b3-4597-b44a-7c4bb06792e6",
+            "_details": {
+              "name": "OK",
+              "detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action.",
+              "code": 200,
+              "standardName": "OK"
+            },
+            "status": "OK",
+            "code": 200,
+            "cookies": [],
+            "responseTime": 70,
+            "responseSize": 1149,
+            "downloadedBytes": 1149
+          },
+          "tests": [
+            {
+              "name": "Status code is 200",
+              "status": "passed"
+            },
+            {
+              "name": "Verify the key value",
+              "status": "passed"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "iterationCount": 0,
+          "requestExecuted": {
+            "id": "047d9fac-9c03-4eb7-9fd0-cd1b9e6eef90",
+            "name": "delete Partner Settings For Newly Added Key",
+            "url": {
+              "protocol": "https",
+              "path": [
+                "v6.0",
+                "epro",
+                "partnersettings",
+                "remove"
+              ],
+              "host": [
+                "rest-qa-external",
+                "corp",
+                "cdw",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST"
+          },
+          "response": {
+            "id": "e3d6f3aa-5c82-485d-9374-a89422775526",
+            "_details": {
+              "name": "Accepted",
+              "detail": "The request has been accepted for processing, but the processing has not been completed. The request might or might not eventually be acted upon, as it might be disallowed when processing actually takes place.",
+              "code": 202,
+              "standardName": "Accepted"
+            },
+            "status": "Accepted",
+            "code": 202,
+            "cookies": [],
+            "responseTime": 73,
+            "responseSize": 2,
+            "downloadedBytes": 2
+          },
+          "tests": [
+            {
+              "name": "Status code is 202",
+              "status": "passed"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "iterationCount": 0,
+          "requestExecuted": {
+            "id": "292bd75e-11a6-4069-a165-7681c35d1b78",
+            "name": "partner Settings With New Key after Delete",
+            "url": {
+              "protocol": "https",
+              "path": [
+                "v6.0",
+                "epro",
+                "partnersettings",
+                "add"
+              ],
+              "host": [
+                "rest-qa-external",
+                "corp",
+                "cdw",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST"
+          },
+          "response": {
+            "id": "e8151d52-6544-4043-871a-3cf4b216dca7",
+            "_details": {
+              "name": "Created",
+              "detail": "The request has been fulfilled and resulted in a new resource being created.",
+              "code": 201,
+              "standardName": "Created"
+            },
+            "status": "Created",
+            "code": 201,
+            "cookies": [],
+            "responseTime": 72,
+            "responseSize": 2,
+            "downloadedBytes": 2
+          },
+          "tests": [
+            {
+              "name": "Status code is 201",
+              "status": "passed"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "iterationCount": 0,
+          "requestExecuted": {
+            "id": "923e7931-1c78-4214-acfa-836c15bc8da6",
+            "name": "all Partner Settings By Key For Newly Added Key after Delete",
+            "url": {
+              "protocol": "https",
+              "path": [
+                "v6.0",
+                "epro",
+                "partnersettings",
+                "get",
+                "137683C71AE74F18B0860E010B9D1170"
+              ],
+              "host": [
+                "rest-qa-external",
+                "corp",
+                "cdw",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET"
+          },
+          "response": {
+            "id": "1d328851-1cfa-4755-a650-6d78f5714c07",
+            "_details": {
+              "name": "OK",
+              "detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action.",
+              "code": 200,
+              "standardName": "OK"
+            },
+            "status": "OK",
+            "code": 200,
+            "cookies": [],
+            "responseTime": 70,
+            "responseSize": 1147,
+            "downloadedBytes": 1147
+          },
+          "tests": [
+            {
+              "name": "Status code is 200",
+              "status": "passed"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "iterationCount": 0,
+          "requestExecuted": {
+            "id": "b1a106c7-fb4e-418b-bd6b-659e90042bf5",
+            "name": "delete Partner Settings For Newly Added Key after",
+            "url": {
+              "protocol": "https",
+              "path": [
+                "v6.0",
+                "epro",
+                "partnersettings",
+                "remove"
+              ],
+              "host": [
+                "rest-qa-external",
+                "corp",
+                "cdw",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST"
+          },
+          "response": {
+            "id": "f3bed83a-a259-4e4c-a0fe-107607ae0169",
+            "_details": {
+              "name": "Accepted",
+              "detail": "The request has been accepted for processing, but the processing has not been completed. The request might or might not eventually be acted upon, as it might be disallowed when processing actually takes place.",
+              "code": 202,
+              "standardName": "Accepted"
+            },
+            "status": "Accepted",
+            "code": 202,
+            "cookies": [],
+            "responseTime": 70,
+            "responseSize": 2,
+            "downloadedBytes": 2
+          },
+          "tests": [
+            {
+              "name": "Status code is 202",
+              "status": "passed"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "iterationCount": 0,
+          "requestExecuted": {
+            "id": "a56daf4f-4ffd-4f39-98fb-da1d18037352",
+            "name": "sodexo SSO Auth",
+            "url": {
+              "protocol": "https",
+              "path": [
+                "v6.0",
+                "epro",
+                "sso",
+                "partner",
+                "authorizationurl"
+              ],
+              "host": [
+                "rest-qa-external",
+                "corp",
+                "cdw",
+                "com"
+              ],
+              "query": [
+                {
+                  "key": "partnerKey",
+                  "value": "5AFFA986F1A64D2F9D49A455B196BD1F"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET"
+          },
+          "response": {
+            "id": "54353e7f-4c79-4818-9bfa-ad7e410d6832",
+            "_details": {
+              "name": "OK",
+              "detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action.",
+              "code": 200,
+              "standardName": "OK"
+            },
+            "status": "OK",
+            "code": 200,
+            "cookies": [],
+            "responseTime": 69,
+            "responseSize": 292,
+            "downloadedBytes": 292
+          },
+          "tests": [
+            {
+              "name": "Status code is 200",
+              "status": "passed"
+            },
+            {
+              "name": "gets the Auth endpoint",
+              "status": "passed"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "iterationCount": 0,
+          "requestExecuted": {
+            "id": "ec6c6d53-86fa-4d82-80a1-3a6c263c9e7f",
+            "name": "session Key Deatils",
+            "url": {
+              "protocol": "https",
+              "path": [
+                "v6.0",
+                "epro",
+                "session"
+              ],
+              "host": [
+                "rest-qa-external",
+                "corp",
+                "cdw",
+                "com"
+              ],
+              "query": [
+                {
+                  "key": "sessionKey",
+                  "value": "B13F10D814E944DC866D486B05366848"
+                },
+                {
+                  "key": "includerules",
+                  "value": "true"
+                }
+              ],
+              "variable": []
+            },
+            "method": "GET"
+          },
+          "response": {
+            "id": "b443570c-d4fd-4764-9fa5-f1b72faf482b",
+            "_details": {
+              "name": "OK",
+              "detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action.",
+              "code": 200,
+              "standardName": "OK"
+            },
+            "status": "OK",
+            "code": 200,
+            "cookies": [],
+            "responseTime": 75,
+            "responseSize": 7219,
+            "downloadedBytes": 7219
+          },
+          "tests": [
+            {
+              "name": "Status code is 200",
+              "status": "passed"
+            },
+            {
+              "name": "verify SessionKey",
+              "status": "passed"
+            },
+            {
+              "name": "verify Sessionkey Varibale is a array",
+              "status": "passed"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "iterationCount": 0,
+          "requestExecuted": {
+            "id": "0dd27007-0a9b-4733-9a42-9a0381253e3d",
+            "name": "session Variable",
+            "url": {
+              "protocol": "https",
+              "path": [
+                "v6.0",
+                "epro",
+                "SessionVariable",
+                "22345369"
+              ],
+              "host": [
+                "rest-qa-external",
+                "corp",
+                "cdw",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET"
+          },
+          "response": {
+            "id": "25f85384-722d-44de-a972-730653e342c8",
+            "_details": {
+              "name": "OK",
+              "detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action.",
+              "code": 200,
+              "standardName": "OK"
+            },
+            "status": "OK",
+            "code": 200,
+            "cookies": [],
+            "responseTime": 76,
+            "responseSize": 4296,
+            "downloadedBytes": 4296
+          },
+          "tests": [
+            {
+              "name": "Status code is 200",
+              "status": "passed"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "iterationCount": 0,
+          "requestExecuted": {
+            "id": "0a3f122e-e76d-4a62-b2b0-426dd1986273",
+            "name": "client Names",
+            "url": {
+              "protocol": "https",
+              "path": [
+                "v6.0",
+                "epro",
+                "ClientNames"
+              ],
+              "host": [
+                "rest-qa-external",
+                "corp",
+                "cdw",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET"
+          },
+          "response": {
+            "id": "37fd28f5-f027-418f-b6fe-05e3424e365e",
+            "_details": {
+              "name": "OK",
+              "detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action.",
+              "code": 200,
+              "standardName": "OK"
+            },
+            "status": "OK",
+            "code": 200,
+            "cookies": [],
+            "responseTime": 1817,
+            "responseSize": 418621,
+            "downloadedBytes": 418621
+          },
+          "tests": [
+            {
+              "name": "Status code is 200",
+              "status": "passed"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "iterationCount": 0,
+          "requestExecuted": {
+            "id": "29a2ff49-8f75-47a7-bc59-b5796843babc",
+            "name": "transfer Cart cXML",
+            "url": {
+              "protocol": "https",
+              "path": [
+                "v6.0",
+                "epro",
+                "SessionLog",
+                "$%7BnewPartnerKey%7D",
+                "_add"
+              ],
+              "host": [
+                "rest-qa-external",
+                "corp",
+                "cdw",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST"
+          },
+          "response": {
+            "id": "2735b48d-c7ce-42b2-8f96-4c1096674199",
+            "_details": {
+              "name": "Created",
+              "detail": "The request has been fulfilled and resulted in a new resource being created.",
+              "code": 201,
+              "standardName": "Created"
+            },
+            "status": "Created",
+            "code": 201,
+            "cookies": [],
+            "responseTime": 75,
+            "responseSize": 2,
+            "downloadedBytes": 2
+          },
+          "tests": [
+            {
+              "name": "Status code is 201",
+              "status": "passed"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "iterationCount": 0,
+          "requestExecuted": {
+            "id": "9974beef-7415-44d4-9dfe-dbabbc9649bc",
+            "name": "transfer Cart cXML",
+            "url": {
+              "protocol": "https",
+              "path": [
+                "v6.0",
+                "epro",
+                "SessionLog",
+                "$%7BnewPartnerKey%7D"
+              ],
+              "host": [
+                "rest-qa-external",
+                "corp",
+                "cdw",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET"
+          },
+          "response": {
+            "id": "9bdd5e68-be2d-44e6-afd8-00411cfa3a97",
+            "_details": {
+              "name": "OK",
+              "detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action.",
+              "code": 200,
+              "standardName": "OK"
+            },
+            "status": "OK",
+            "code": 200,
+            "cookies": [],
+            "responseTime": 152,
+            "responseSize": 3895,
+            "downloadedBytes": 3895
+          },
+          "tests": [
+            {
+              "name": "Status code is 200",
+              "status": "passed"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "iterationCount": 0,
+          "requestExecuted": {
+            "id": "8c8aeb19-e20f-4b89-b762-083478a0ac91",
+            "name": "payment",
+            "url": {
+              "protocol": "https",
+              "path": [
+                "v6.0",
+                "epro",
+                "pre-checkout"
+              ],
+              "host": [
+                "rest-qa-external",
+                "corp",
+                "cdw",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST"
+          },
+          "response": {
+            "id": "b10a0a91-ff3f-4adb-bb74-f06b443f0b42",
+            "_details": {
+              "name": "Created",
+              "detail": "The request has been fulfilled and resulted in a new resource being created.",
+              "code": 201,
+              "standardName": "Created"
+            },
+            "status": "Created",
+            "code": 201,
+            "cookies": [],
+            "responseTime": 69,
+            "responseSize": 36,
+            "downloadedBytes": 36
+          },
+          "tests": [
+            {
+              "name": "Status code is 201",
+              "status": "passed"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "iterationCount": 0,
+          "requestExecuted": {
+            "id": "56301ad9-486b-4657-ad33-5ade006aaf24",
+            "name": "payment",
+            "url": {
+              "protocol": "https",
+              "path": [
+                "v6.0",
+                "epro",
+                "pre-checkout",
+                "8238e8fd-dc5f-4230-b8c4-2ad03a1fa123"
+              ],
+              "host": [
+                "rest-qa-external",
+                "corp",
+                "cdw",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "PUT"
+          },
+          "response": {
+            "id": "d83d1f25-3fe9-4bb4-b634-ad62ac7e5cc8",
+            "_details": {
+              "name": "OK",
+              "detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action.",
+              "code": 200,
+              "standardName": "OK"
+            },
+            "status": "OK",
+            "code": 200,
+            "cookies": [],
+            "responseTime": 83,
+            "responseSize": 125,
+            "downloadedBytes": 125
+          },
+          "tests": [
+            {
+              "name": "Status code is 200",
+              "status": "passed"
+            },
+            {
+              "name": "Verigy transaction ID from the Post",
+              "status": "passed"
+            }
+          ],
+          "errors": []
+        },
+        {
+          "iterationCount": 0,
+          "requestExecuted": {
+            "id": "309f2fcf-e7b2-4d8c-976b-8428f37421bd",
+            "name": "payment",
+            "url": {
+              "protocol": "https",
+              "path": [
+                "v6.0",
+                "epro",
+                "pre-checkout",
+                "8238e8fd-dc5f-4230-b8c4-2ad03a1fa123"
+              ],
+              "host": [
+                "rest-qa-external",
+                "corp",
+                "cdw",
+                "com"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET"
+          },
+          "response": {
+            "id": "8047d24f-2b61-4799-bcff-b95230644c4a",
+            "_details": {
+              "name": "OK",
+              "detail": "Standard response for successful HTTP requests. The actual response will depend on the request method used. In a GET request, the response will contain an entity corresponding to the requested resource. In a POST request the response will contain an entity describing or containing the result of the action.",
+              "code": 200,
+              "standardName": "OK"
+            },
+            "status": "OK",
+            "code": 200,
+            "cookies": [],
+            "responseTime": 87,
+            "responseSize": 671,
+            "downloadedBytes": 671
+          },
+          "tests": [
+            {
+              "name": "Status code is 200",
+              "status": "passed"
+            },
+            {
+              "name": "Verify the CustomerNumber",
+              "status": "passed"
+            },
+            {
+              "name": "Verify the SubTotal after update",
+              "status": "passed"
+            }
+          ],
+          "errors": []
+        }
+      ],
+      "runError": null
+    }
+  }
