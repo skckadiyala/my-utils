@@ -134,9 +134,12 @@ func PostmanResults2Splunk(resultFile, splunkHost, splunkPort, userName, passwor
 	startedTime := time.Unix(0, startDate*int64(time.Millisecond)).Format("2006-01-02")
 	extractedData["testDate"] = startedTime
 	extractedData["environment"] = os.Getenv("Environment")
+	extractedData["productTeam"] = os.Getenv("ProductTeam")
 
 	for num, execution := range results.Run.Executions {
-		extractedData["requestName"] = execution.RequestExecuted.Name
+		iterrationCount := fmt.Sprintf("%d", execution.IterationCount)
+
+		extractedData["requestName"] = iterrationCount + ": " + execution.RequestExecuted.Name
 		concatenateWithDelimiter(execution.RequestExecuted.URL.Host, "/")
 		concatenateWithDelimiter(execution.RequestExecuted.URL.Path, "/")
 
@@ -148,8 +151,8 @@ func PostmanResults2Splunk(resultFile, splunkHost, splunkPort, userName, passwor
 		extractedData["responseDetails"] = execution.Response.Details.Detail
 
 		for _, test := range execution.Tests {
-			extractedData["testSatus"] = test.Status
-			extractedData["testName"] = test.Name
+			extractedData["testStatus"] = test.Status
+			extractedData["testName"] = iterrationCount + ": " + test.Name
 
 			if test.Status == "failed" {
 				extractedData["testError"] = test.Error.Message
